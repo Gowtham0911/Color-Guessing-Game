@@ -126,9 +126,15 @@ resetButton.addEventListener("click", function () {
 });
 
 function changeColors(color) {
+    // Only update the active squares so hidden squares remain hidden in Easy/Hard
     for (var i = 0; i < squares.length; i++) {
-        squares[i].style.background = color;
-        squares[i].style.display = "block";
+        if (i < numSquares) {
+            squares[i].style.background = color;
+            squares[i].style.display = "block";
+        } else {
+            // keep non-active squares hidden
+            squares[i].style.display = "none";
+        }
     }
 }
 
